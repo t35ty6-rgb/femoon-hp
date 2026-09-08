@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#D9607F">
+<title>フェムーン 確認シート｜公開前のご確認</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{
+  --ground:#FBF7F0; --panel:#FFFFFF; --panel-2:#FDF9F3;
+  --ink:#3A2B2E; --text:#574546; --muted:#6F5C59; --faint:#8E7A78;
+  --line:#EADCCB; --line-soft:#F3EBE0;
+  --pink:#D9607F; --pink-deep:#B23F5F; --pink-soft:#FBE9EE;
+  --ok:#2E8B6B; --warn:#B8792B;
+  --serif:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --latin:"Jost",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#241B1D; --panel:#2E2325; --panel-2:#332628;
+    --ink:#F2E8E6; --text:#DFD1CF; --muted:#BBA9A7; --faint:#9C8987;
+    --line:#463739; --line-soft:#3A2D2F;
+    --pink:#E88AA3; --pink-deep:#F0A2B7; --pink-soft:#3E2B32;
+    --ok:#6FC3A3; --warn:#DCA95F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#241B1D; --panel:#2E2325; --panel-2:#332628;
+  --ink:#F2E8E6; --text:#DFD1CF; --muted:#BBA9A7; --faint:#9C8987;
+  --line:#463739; --line-soft:#3A2D2F;
+  --pink:#E88AA3; --pink-deep:#F0A2B7; --pink-soft:#3E2B32;
+  --ok:#6FC3A3; --warn:#DCA95F;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--text);
+  font-family:var(--sans);font-size:15px;line-height:1.95;letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:790px;margin:0 auto;padding:0 22px 100px}
+
+/* header */
+header{padding:46px 0 0}
+.kicker{font-family:var(--latin);font-size:11.5px;font-weight:500;letter-spacing:.22em;
+  color:var(--pink-deep);text-transform:uppercase}
+h1{font-family:var(--serif);font-size:clamp(26px,4.4vw,38px);font-weight:600;line-height:1.5;
+  letter-spacing:.04em;color:var(--ink);margin:12px 0 0;text-wrap:balance}
+.sub{margin:14px 0 0;font-size:14px;color:var(--muted);max-width:60ch}
+
+/* progress */
+.prog{position:sticky;top:0;z-index:9;background:var(--ground);
+  padding:16px 0 14px;margin-top:26px;border-bottom:1px solid var(--line)}
+.prog-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prog-n{font-family:var(--latin);font-weight:300;font-size:30px;color:var(--pink);line-height:1;
+  font-variant-numeric:tabular-nums}
+.prog-n small{font-size:15px;color:var(--faint);margin-left:2px}
+.prog-lbl{font-size:12.5px;color:var(--faint);letter-spacing:.06em}
+.prog-state{margin-left:auto;font-size:12px;color:var(--faint);font-family:var(--latin);letter-spacing:.06em}
+.prog-state[data-s="saved"]{color:var(--ok)}
+.prog-state[data-s="saving"]{color:var(--warn)}
+.bar{height:3px;background:var(--line-soft);margin-top:11px;border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--pink);border-radius:99px;
+  transition:width .35s cubic-bezier(.4,0,.2,1)}
+
+/* groups */
+.grp{margin-top:44px}
+.grp-h{display:flex;align-items:center;gap:12px}
+.grp-h h2{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.05em;color:var(--ink);margin:0}
+.grp-h .tag{font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:3px}
+.tag--must{background:var(--pink);color:#fff}
+.tag--law{background:var(--pink-soft);color:var(--pink-deep);border:1px solid var(--pink)}
+.grp-note{margin-top:9px;font-size:12.5px;color:var(--faint);line-height:1.85}
+.items{margin-top:18px;display:grid;gap:14px}
+
+/* item */
+.it{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:20px 22px;
+  display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:14px;row-gap:0}
+.it[data-done="1"]{border-left:3px solid var(--pink);padding-left:20px}
+.it-n{font-family:var(--latin);font-weight:400;font-size:14px;color:var(--faint);
+  line-height:1.9;font-variant-numeric:tabular-nums;grid-row:span 3}
+.it[data-done="1"] .it-n{color:var(--pink)}
+.q{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.75}
+.why{margin-top:7px;font-size:12.5px;color:var(--muted);line-height:1.9}
+.why b{color:var(--pink-deep);font-weight:700}
+.quote{margin-top:10px;padding:11px 14px;background:var(--panel-2);border-left:2px solid var(--line);
+  font-size:12.5px;line-height:1.9;color:var(--muted)}
+.ans{margin-top:13px}
+
+/* controls */
+input[type=text],textarea{width:100%;font-family:var(--sans);font-size:14.5px;color:var(--ink);
+  background:var(--ground);border:1px solid var(--line);border-radius:2px;padding:10px 13px;
+  line-height:1.8;transition:border-color .15s ease}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--pink)}
+textarea{resize:vertical;min-height:74px}
+::placeholder{color:var(--faint);opacity:.75}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:var(--text);
+  border:1px solid var(--line);border-radius:99px;padding:7px 15px;cursor:pointer;
+  background:var(--ground);transition:all .15s ease;user-select:none}
+.opt:hover{border-color:var(--pink)}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--line);flex:none;transition:all .15s ease}
+.opt:has(input:checked){background:var(--pink-soft);border-color:var(--pink);color:var(--pink-deep);font-weight:700}
+.opt:has(input:checked) i{background:var(--pink);border-color:var(--pink)}
+.opt:has(input:focus-visible){outline:2px solid var(--pink);outline-offset:2px}
+.follow{margin-top:10px}
+.follow[hidden]{display:none}
+
+/* ticket grid */
+.tix{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:9px}
+.tix label{display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:var(--faint);letter-spacing:.05em}
+.tix input{font-family:var(--latin);font-variant-numeric:tabular-nums;text-align:right}
+
+/* footer actions */
+.foot{margin-top:52px;border-top:1px solid var(--line);padding-top:26px;
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+button.act{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.03em;
+  border:1px solid var(--pink);background:var(--pink);color:#fff;border-radius:99px;
+  padding:13px 26px;cursor:pointer;transition:opacity .15s ease}
+button.act:hover{opacity:.87}
+button.act.ghost{background:transparent;color:var(--pink-deep)}
+.foot-note{font-size:12.5px;color:var(--faint);line-height:1.85;flex:1 1 260px;min-width:0}
+.offline{margin-top:16px;padding:12px 15px;border:1px dashed var(--line);border-radius:3px;
+  font-size:12.5px;color:var(--faint)}
+.offline[hidden]{display:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:560px){
+  .it{grid-template-columns:1fr;row-gap:0}
+  .it-n{grid-row:auto;margin-bottom:2px}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">FEMOON &middot; site launch</div>
+  <h1>公開前に、あと少しだけ<br>教えてください</h1>
+  <p class="sub">ホームページはできています。こちらで調べきれなかった項目だけ残っています。書いた内容はその場で保存されるので、途中で閉じても大丈夫です。分かるところだけで構いません。</p>
+</header>
+
+<div class="prog">
+  <div class="prog-row">
+    <span class="prog-n" id="pn">0<small>/12</small></span>
+    <span class="prog-lbl">記入済み</span>
+    <span class="prog-state" id="ps" data-s="idle">&nbsp;</span>
+  </div>
+  <div class="bar"><i id="pb"></i></div>
+</div>
+
+<div class="offline" id="off" hidden>記入内容はこの端末のブラウザに保存されます。閉じても、同じ端末・同じブラウザで開けば続きから書けます。</div>
+
+<section class="grp">
+  <div class="grp-h"><h2>これがないと公開できません</h2><span class="tag tag--must">必須</span></div>
+  <p class="grp-note">サイト内のボタンがすべてLINEに繋がる設計なので、1番だけは必ず必要です。</p>
+  <div class="items" id="g1"></div>
+</section>
+
+<section class="grp">
+  <div class="grp-h"><h2>文章の確認</h2></div>
+  <p class="grp-note">いまサイトに書いてある文章です。事実と違うところがあれば直します。</p>
+  <div class="items" id="g2"></div>
+</section>
+
+<section class="grp">
+  <div class="grp-h"><h2>料金</h2></div>
+  <p class="grp-note">ホットペッパーでは回数券がすべて「要問い合わせ」でした。続けて通う前提のメニューで総額が見えないと、そこで検討をやめる方が多いので、公開をおすすめします。</p>
+  <div class="items" id="g3"></div>
+</section>
+
+<section class="grp">
+  <div class="grp-h"><h2>法令上、書かないといけないこと</h2><span class="tag tag--law">景表法・特商法</span></div>
+  <p class="grp-note">施術前後の比較写真を載せる場合、撮影条件・回数・期間・併用したケアの明記がないと、景品表示法（不実証広告規制）上のリスクがあります。ここが埋まらない場合は、比較写真を外して公開します。</p>
+  <div class="items" id="g4"></div>
+</section>
+
+<section class="grp">
+  <div class="grp-h"><h2>こちらからの提案</h2></div>
+  <div class="items" id="g5"></div>
+</section>
+
+<div class="foot">
+  <button class="act" id="copy">回答をコピー</button>
+  <button class="act ghost" id="dl">テキストで保存</button>
+  <p class="foot-note">書き終わったら「回答をコピー」を押して、そのままLINEに貼って送ってください。全部埋まっていなくて大丈夫です。</p>
+</div>
+</div>
+
+<script>
+const ITEMS = [
+  {g:'g1',n:1,q:'LINE公式アカウントのID、または友だち追加URL',
+   why:'サイトの全ボタンがここに繋がります。<b>これだけは必須</b>です。',
+   type:'text',ph:'@から始まるID、または https://lin.ee/... '},
+  {g:'g1',n:2,q:'Instagramのアカウント名',
+   why:'@から始まるものをそのまま貼っていただければ大丈夫です。まだ無ければ「なし」と書いてください。',
+   type:'text',ph:'@femoon_fukui'},
+  {g:'g1',n:3,q:'サイトに載せる電話番号',
+   why:'ホットペッパーでは非公開になっていました。「載せない」という判断でも構いません。',
+   type:'choice',opts:['番号を載せる','載せない'],follow:{after:'番号を載せる',ph:'0776-00-0000'}},
+
+  {g:'g2',n:4,q:'デリケートゾーンに直接触れる施術ではない、という理解で合っていますか',
+   why:'来店を迷っている方が<b>いちばん知りたいところ</b>です。いまはこう書いています。',
+   quote:'いいえ、直接触れる施術は行いません。フェムケア矯正®は、骨盤をはじめとした骨格と、その内側にある内臓の位置、骨盤底筋群のまわりに、衣服の上から手技でアプローチする施術です。',
+   type:'choice',opts:['このままでOK','表現を直したい'],follow:{after:'表現を直したい',ph:'どう直したいか書いてください',area:true}},
+  {g:'g2',n:5,q:'生理中の方はどうされていますか',
+   why:'いまはこう書いています。',
+   quote:'生理中でもお受けいただけます。ただし、経血量が多い日や痛みが強い日は無理をせず、別の日にご予約いただくことをおすすめしています。',
+   type:'choice',opts:['このままでOK','違う','お断りしている'],follow:{after:'違う',ph:'実際の運用を書いてください',area:true}},
+  {g:'g2',n:6,q:'産後は何ヶ月から受けられますか',
+   why:'妊娠中は不可、と書いています。ここが違えば直します。',
+   type:'text',ph:'例：産後2ヶ月以降'},
+  {g:'g2',n:7,q:'キャンセルポリシー',
+   why:'完全予約制・1名貸切なので、いつまでのご連絡なら無料か、当日キャンセルはどう扱うかを載せておくとトラブルが減ります。',
+   type:'area',ph:'例：前日18時までのご連絡は無料。当日キャンセルは施術料の50%。'},
+
+  {g:'g3',n:8,q:'回数券の価格（税込）',
+   why:'空欄の回は、そのままサイトに載せません。',
+   type:'tickets',keys:['3回','5回','8回','10回','12回']},
+  {g:'g3',n:9,q:'回数券の有効期限',
+   why:'総額5万円を超え、かつ1か月を超える回数券は、特定商取引法上の<b>特定継続的役務提供</b>にあたり、契約前の「概要書面」と契約後の「契約書面」の交付が義務になります。ひな形はこちらで用意します。',
+   type:'choice',opts:['期限あり','期限なし'],follow:{after:'期限あり',ph:'例：購入日から6ヶ月'}},
+
+  {g:'g4',n:10,q:'施術前後の比較写真について、撮影条件を教えてください',
+   why:'<b>何回受けた後か・期間・来店間隔・併用したおうちケア・撮影の条件</b>（同じ服装／同じ照明／同じ立ち位置か）。ここが分かる範囲で構いません。',
+   type:'area',ph:'例：週1回ペースで計5回、約1か月半。おうちケアは特になし。同じ服装・同じ場所で撮影。'},
+  {g:'g4',n:11,q:'「美容整骨」を®付きで表記してよい許諾はありますか',
+   why:'看板とホットペッパーで「美容整骨®」と表記されていますが、<b>「美容整骨」の商標権者は株式会社ビーライフという別の会社</b>です（登録第5779090号）。日本美容整骨協会ではありません。念のためサイトでは®を外しています。',
+   type:'choice',opts:['許諾がある','許諾はない／わからない'],follow:{after:'許諾がある',ph:'どこから許諾を受けているか'}},
+
+  {g:'g5',n:12,q:'Googleビジネスプロフィールは登録されていますか',
+   why:'「フェムーン 福井」で検索してもホットペッパー以外どこにも出てきませんでした。<b>無料で、ホームページより先に効果が出ることもあります。</b>登録作業はこちらで代行できます。',
+   type:'choice',opts:['登録済み','未登録','わからない','代行してほしい']},
+];
+
+let state = {};
+let db = null, saveT = null;
+const LS = 'femoon-checksheet-v1';
+function lsLoad(){
+  try { const r = localStorage.getItem(LS); if (r) return JSON.parse(r); } catch(e){}
+  return null;
+}
+function lsSave(){ try { localStorage.setItem(LS, JSON.stringify(state)); } catch(e){} }
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function isDone(it){
+  const v = state[it.n];
+  if (v == null) return false;
+  if (it.type === 'tickets') return Object.values(v).some(x => String(x).trim());
+  if (typeof v === 'object') return !!String(v.choice || '').trim();
+  return !!String(v).trim();
+}
+
+function build(){
+  for (const it of ITEMS){
+    const el = document.createElement('div');
+    el.className = 'it'; el.dataset.n = it.n;
+    let ctl = '';
+    if (it.type === 'text')
+      ctl = `<input type="text" data-k="${it.n}" placeholder="${esc(it.ph||'')}">`;
+    else if (it.type === 'area')
+      ctl = `<textarea data-k="${it.n}" placeholder="${esc(it.ph||'')}"></textarea>`;
+    else if (it.type === 'tickets')
+      ctl = `<div class="tix">${it.keys.map(k=>
+        `<label>${k}<input type="text" data-k="${it.n}" data-sub="${k}" placeholder="—" inputmode="numeric"></label>`).join('')}</div>`;
+    else if (it.type === 'choice'){
+      ctl = `<div class="opts">${it.opts.map(o=>
+        `<label class="opt"><input type="radio" name="q${it.n}" data-k="${it.n}" value="${esc(o)}"><i></i>${esc(o)}</label>`).join('')}</div>`;
+      if (it.follow) ctl += `<div class="follow" data-follow="${it.n}" hidden>${
+        it.follow.area ? `<textarea data-k="${it.n}" data-sub="note" placeholder="${esc(it.follow.ph)}"></textarea>`
+                       : `<input type="text" data-k="${it.n}" data-sub="note" placeholder="${esc(it.follow.ph)}">`}</div>`;
+    }
+    el.innerHTML = `<span class="it-n">${String(it.n).padStart(2,'0')}</span>
+      <div><p class="q">${it.q}</p>
+      ${it.why ? `<p class="why">${it.why}</p>` : ''}
+      ${it.quote ? `<blockquote class="quote">${esc(it.quote)}</blockquote>` : ''}
+      <div class="ans">${ctl}</div></div>`;
+    $('#'+it.g).appendChild(el);
+  }
+  document.addEventListener('input', onEdit);
+  document.addEventListener('change', onEdit);
+}
+
+function onEdit(e){
+  const t = e.target.closest('[data-k]');
+  if (!t) return;
+  const n = +t.dataset.k, sub = t.dataset.sub, it = ITEMS.find(i => i.n === n);
+  if (it.type === 'tickets'){
+    state[n] = Object.assign({}, state[n], {[sub]: t.value});
+  } else if (it.type === 'choice'){
+    const cur = Object.assign({}, state[n]);
+    if (sub === 'note') cur.note = t.value; else cur.choice = t.value;
+    state[n] = cur;
+  } else state[n] = t.value;
+  paint(); lsSave(); queueSave();
+}
+
+function paint(){
+  for (const it of ITEMS){
+    const el = document.querySelector(`.it[data-n="${it.n}"]`);
+    if (el) el.dataset.done = isDone(it) ? '1' : '0';
+    if (it.follow){
+      const f = document.querySelector(`[data-follow="${it.n}"]`);
+      if (f) f.hidden = !(state[it.n] && state[it.n].choice === it.follow.after);
+    }
+  }
+  const done = ITEMS.filter(isDone).length;
+  $('#pn').innerHTML = done + '<small>/' + ITEMS.length + '</small>';
+  $('#pb').style.width = (done / ITEMS.length * 100) + '%';
+}
+
+function fill(){
+  for (const el of document.querySelectorAll('[data-k]')){
+    const n = +el.dataset.k, sub = el.dataset.sub, v = state[n], it = ITEMS.find(i => i.n === n);
+    if (v == null) continue;
+    if (it.type === 'tickets') el.value = (v[sub] ?? '');
+    else if (it.type === 'choice'){
+      if (sub === 'note') el.value = (v.note ?? '');
+      else el.checked = (v.choice === el.value);
+    } else el.value = v;
+  }
+  paint();
+}
+
+function status(s, txt){ const e = $('#ps'); e.dataset.s = s; e.textContent = txt; }
+
+function queueSave(){
+  if (!db){ status('saved','保存しました'); return; }
+  status('saving','保存中…');
+  clearTimeout(saveT);
+  saveT = setTimeout(async () => {
+    try {
+      await db.doc('answers/femoon').set({answers: state, updatedAt: Date.now()});
+      status('saved','保存しました');
+    } catch (err){ status('idle','保存できませんでした'); }
+  }, 700);
+}
+
+function asText(){
+  const L = ['フェムーン 確認シート 回答', ''];
+  for (const it of ITEMS){
+    const v = state[it.n];
+    let s = '(未記入)';
+    if (v != null){
+      if (it.type === 'tickets') s = it.keys.map(k => `${k} ${v[k] ? v[k] + '円' : '—'}`).join(' / ');
+      else if (typeof v === 'object') s = [v.choice, v.note].filter(Boolean).join(' / ') || '(未記入)';
+      else if (String(v).trim()) s = v;
+    }
+    L.push(`${it.n}. ${it.q}`, `→ ${s}`, '');
+  }
+  return L.join('\n');
+}
+
+build();
+const cached = lsLoad();
+if (cached){ state = cached; fill(); }
+$('#copy').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText(asText()); e.target.textContent = 'コピーしました'; }
+  catch { e.target.textContent = 'コピーできませんでした'; }
+  setTimeout(() => { e.target.textContent = '回答をコピー'; }, 1800);
+});
+$('#dl').addEventListener('click', () => {
+  const blob = new Blob([asText()], {type:'text/plain;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'femoon-answers.txt';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+});
+$('#off').hidden = false;
+status('saved', ' ');
+</script>
+
+</html>
