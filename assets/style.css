@@ -1020,3 +1020,19 @@ body.t-ikumo{
 /* する/しない のアイコン色をテーマ連動に */
 .cmp-do i{color:var(--pink)}
 .cmp-no i{color:var(--muted)}
+
+/* ══════════ Instagram ボタン ══════════ */
+.btn-ig{display:inline-flex;align-items:center;gap:11px;padding:14px 26px;border-radius:999px;
+  text-decoration:none;background:#fff;border:1px solid var(--card-line);color:var(--ink);
+  font-size:14px;letter-spacing:.04em;transition:border-color .25s,transform .25s,box-shadow .25s}
+.btn-ig:hover{border-color:var(--line-pink);transform:translateY(-2px);box-shadow:0 14px 28px -20px rgba(58,43,46,.5)}
+.btn-ig:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.btn-ig svg{width:21px;height:21px;flex:none}
+.btn-ig b{font-weight:700}
+.btn-ig span{display:block;font-size:11px;letter-spacing:.03em;color:var(--faint);margin-top:2px}
+.btn-ig .ig-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.35}
+/* CTA帯（濃い背景）の上では白フチ版に */
+.cta .btn-ig{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.cta .btn-ig:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.cta .btn-ig span{color:rgba(255,255,255,.8)}
+.sns-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
