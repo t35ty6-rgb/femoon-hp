@@ -1012,3 +1012,11 @@ body.t-ikumo{
   .gate-ask::before,.gate-ask::after{width:18px}
   .door-foot{align-items:center}
 }
+/* 扉の対象バッジ（女性専用／男性も可） */
+.door-for{display:inline-block;margin-left:9px;padding:2px 9px;border-radius:999px;font-size:10px;
+  font-weight:500;letter-spacing:.05em;vertical-align:1px;
+  background:var(--surface-2,#F1EDE4);color:var(--muted);border:1px solid var(--card-line)}
+.door-for.is-w{background:var(--pink-soft);color:var(--pink-deep);border-color:var(--line-pink)}
+/* する/しない のアイコン色をテーマ連動に */
+.cmp-do i{color:var(--pink)}
+.cmp-no i{color:var(--muted)}
