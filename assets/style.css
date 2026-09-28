@@ -1036,3 +1036,43 @@ body.t-ikumo{
 .cta .btn-ig:hover{background:rgba(255,255,255,.12);border-color:#fff}
 .cta .btn-ig span{color:rgba(255,255,255,.8)}
 .sns-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+
+/* ============================================================
+   04 フェムケア矯正 講習 = ゴールドベージュ（学び・認定）
+   ============================================================ */
+.t-school{
+  --pink:#A6762F; --pink-deep:#7E5720;
+  --pink-rgb:166,118,47; --pink-deep-rgb:126,87,32;
+  --pink-soft:#F4EAD6; --pink-pale:#FBF6EC; --pink-mid:#E3CEA4;
+  --line-pink:#E0CBA2;
+  --cta-a:#B78A3F; --cta-b:#A6762F; --cta-c:#7E5720;
+  --marker:#F0DFB8;
+}
+body.t-school{--beige:#F8F3E8; --beige-deep:#EFE5CF; --card:#F8F1E2; --card-2:#F2E8D4; --card-line:#E6D7B9}
+.svc-card.t-school,.door.t-school{--card-line:#E7D8C0}
+body.t-school{
+  --veil-rgb:253,251,246;
+  --shadow-card:0 24px 44px -38px rgba(130,95,45,.55);
+  --shadow-pop:0 26px 48px -34px rgba(126,87,32,.5);
+  --tex-beige:radial-gradient(rgba(80,60,25,.022) 1px, transparent 1.3px) 0 0 / 20px 20px,
+              linear-gradient(176deg,#FFFFFF 0%,#FDFAF4 55%,#FBF7EE 100%);
+  --tex-white:radial-gradient(rgba(80,60,25,.018) 1px, transparent 1.3px) 0 0 / 22px 22px,
+              linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 60%,#FEFCF8 100%);
+  --tex-pink:radial-gradient(rgba(126,87,32,.05) 1px, transparent 1.3px) 0 0 / 20px 20px,
+             linear-gradient(162deg,#FDF8EE 0%,#F4E9D3 55%,#FAF3E6 100%);
+}
+body.t-school{--why-a:#FBF6EC;--why-b:#F2E7D1}
+body.t-school{--tp-a:#FDF8EE;--tp-b:#F4E9D3;--tp-c:#FAF3E6;--wave-beige:#FBF7EE;--wave-white:#FFFFFF}
+
+/* 講習LP：いちばん伝えたい一文を大きく出す帯 */
+.claim{position:relative;text-align:center;padding:clamp(40px,6vw,64px) clamp(24px,4vw,56px);
+  border-radius:34px;background:linear-gradient(160deg,var(--why-a) 0%,var(--why-b) 100%);
+  border:1px solid var(--card-line);margin-top:40px;width:100%}
+.claim h3{font-family:var(--serif);font-weight:600;color:var(--ink);
+  font-size:clamp(23px,3.6vw,40px);line-height:1.72;letter-spacing:.055em;text-wrap:balance}
+.claim p{margin-top:22px;font-size:clamp(14px,1.8vw,16.5px);line-height:2.15;color:var(--text)}
+.claim .rule{margin:24px auto 0}
+.claim-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+.claim-tags span{background:#fff;border:1px solid var(--card-line);border-radius:999px;
+  padding:10px 20px;font-size:13.5px;font-weight:700;color:var(--ink)}
+@media(max-width:600px){.claim{border-radius:26px}}
