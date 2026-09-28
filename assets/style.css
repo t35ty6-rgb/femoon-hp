@@ -1100,3 +1100,45 @@ body.t-school{--tp-a:#FDF8EE;--tp-b:#F4E9D3;--tp-c:#FAF3E6;--wave-beige:#FBF7EE;
 @media(max-width:820px){.bone{grid-template-columns:1fr;border-radius:26px}.bone h3,.bone p{text-align:center}}
 
 .claim-fig{width:min(280px,64%);margin:0 auto 2px;display:block;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply}
+
+
+/* ---------- 講習LP：バナー型キービジュアル ---------- */
+.kv{position:relative;isolation:isolate;overflow:hidden;background:#F7F0E6}
+.kv>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:18% 50%;z-index:-2}
+.kv .wrap{min-height:clamp(430px,44vw,600px);display:flex;align-items:center;justify-content:flex-end;
+  padding-top:clamp(36px,4vw,56px);padding-bottom:clamp(36px,4vw,56px)}
+.kv-box{width:min(560px,56%);text-align:center;display:flex;flex-direction:column;align-items:center}
+.kv-eyebrow{font-size:clamp(11.5px,1.4vw,13px);font-weight:700;letter-spacing:.14em;color:var(--muted)}
+.kv-h{font-family:var(--serif);font-weight:500;color:var(--ink);letter-spacing:.09em;margin-top:12px;line-height:1.42}
+.kv-h .s1{display:block;font-size:clamp(19px,2.3vw,27px)}
+.kv-h .s2{display:block;font-size:clamp(28px,3.9vw,47px);margin-top:6px}
+.kv-h em{font-style:normal;color:var(--pink-deep)}
+.kv-note{margin-top:16px;font-size:clamp(11.5px,1.35vw,13px);line-height:1.9;color:var(--muted)}
+.kv-tags{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap;justify-content:center}
+.kv-tags b{font-size:clamp(11.5px,1.4vw,13px);font-weight:900;letter-spacing:.05em;color:#fff;
+  background:var(--pink);border-radius:999px;padding:7px 18px}
+.kv-tags i{font-style:normal;font-family:var(--latin);font-size:13px;color:var(--faint)}
+.kv-logo{margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.kv-logo span:first-child{font-family:var(--latin);font-weight:300;font-size:clamp(28px,3.6vw,44px);
+  letter-spacing:.08em;color:var(--ink);line-height:1.1}
+.kv-logo span:last-child{font-size:clamp(11px,1.3vw,12.5px);letter-spacing:.24em;color:var(--muted)}
+.kv-chips{display:flex;gap:clamp(8px,1.2vw,14px);margin-top:20px;flex-wrap:wrap;justify-content:center}
+.kv-chips div{width:clamp(76px,9vw,96px);height:clamp(76px,9vw,96px);border-radius:50%;background:#fff;
+  border:1px solid var(--line-pink);display:grid;place-content:center;text-align:center;
+  font-size:clamp(10.5px,1.2vw,11.5px);font-weight:900;line-height:1.55;color:var(--pink-deep);
+  box-shadow:0 10px 26px -18px rgba(120,88,40,.8)}
+.kv-cta{margin-top:24px}
+.kv-script{position:absolute;left:clamp(16px,4vw,64px);bottom:clamp(14px,3vw,38px);z-index:1;
+  font-family:"Yellowtail",cursive;font-size:clamp(26px,4vw,50px);color:var(--pink-deep);
+  transform:rotate(-7deg);text-shadow:0 2px 14px rgba(255,255,255,.7)}
+.kv-script small{display:block;font-family:var(--sans);font-size:11px;font-weight:900;letter-spacing:.18em;
+  color:var(--muted);transform:rotate(7deg);margin-top:2px}
+.kv-fine{position:absolute;right:clamp(12px,2vw,26px);bottom:10px;font-size:9.5px;color:var(--faint);z-index:1}
+@media(max-width:820px){
+  .kv{display:block}
+  .kv>img{position:relative;height:clamp(190px,52vw,260px);object-position:14% 40%}
+  .kv .wrap{min-height:0;display:block;padding-top:26px;padding-bottom:30px;background:var(--tex-beige)}
+  .kv-box{width:auto}
+  .kv-script{left:12px;top:clamp(120px,34vw,170px);bottom:auto}
+  .kv-fine{position:static;text-align:center;margin-top:14px}
+}
