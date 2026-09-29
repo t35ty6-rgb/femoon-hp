@@ -1142,3 +1142,13 @@ body.t-school{--tp-a:#FDF8EE;--tp-b:#F4E9D3;--tp-c:#FAF3E6;--wave-beige:#FBF7EE;
   .kv-script{left:12px;top:clamp(120px,34vw,170px);bottom:auto}
   .kv-fine{position:static;text-align:center;margin-top:14px}
 }
+
+
+/* ---------- 講習LP：バナー1枚のキービジュアル ---------- */
+.kvimg{background:var(--tex-beige);padding-bottom:clamp(18px,2.4vw,26px)}
+.kvimg picture,.kvimg>img{display:block;width:100%}
+.kvimg img{display:block;width:100%;height:auto}
+.kvimg-cta{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;
+  padding-top:clamp(22px,3vw,34px)}
+.kvimg-fine{text-align:center;font-size:10.5px;letter-spacing:.04em;color:var(--faint);margin-top:14px}
+@media(max-width:600px){.kvimg-cta .btn-line,.kvimg-cta .btn-ghost-w{width:100%;justify-content:center}}
