@@ -1152,3 +1152,33 @@ body.t-school{--tp-a:#FDF8EE;--tp-b:#F4E9D3;--tp-c:#FAF3E6;--wave-beige:#FBF7EE;
   padding-top:clamp(22px,3vw,34px)}
 .kvimg-fine{text-align:center;font-size:10.5px;letter-spacing:.04em;color:var(--faint);margin-top:14px}
 @media(max-width:600px){.kvimg-cta .btn-line,.kvimg-cta .btn-ghost-w{width:100%;justify-content:center}}
+
+/* ===== 講習LP：キャラクター図版 ===== */
+.chars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,20px);
+  margin-top:clamp(30px,4vw,44px);width:100%}
+.chars .ch{background:#fff;border:1px solid var(--card-line);border-radius:20px;
+  padding:clamp(10px,1.6vw,16px) clamp(8px,1.2vw,14px) clamp(16px,2vw,22px);text-align:center}
+.chars .ch img{width:100%;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply}
+.chars .ch b{display:block;margin-top:2px;font-size:clamp(13px,1.6vw,15px);font-weight:900;
+  color:var(--ink);line-height:1.7;letter-spacing:.01em}
+@media(max-width:700px){.chars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.figs .fig p{text-align:center}
+
+.step-fig{width:100%;max-width:172px;aspect-ratio:1;object-fit:contain;
+  mix-blend-mode:multiply;margin:-10px auto -8px;display:block}
+.steps--fig .step{padding-top:24px;gap:10px}
+.steps--fig .step .no{width:54px;height:54px;border-width:2px}
+.steps--fig .step .no b{font-size:19px}
+.steps--fig .step .no small{font-size:8.5px}
+
+.tagrow{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:clamp(22px,3vw,30px)}
+.tagrow span{background:#fff;border:1px solid var(--card-line);border-radius:999px;
+  padding:9px 18px;font-size:clamp(12.5px,1.6vw,13.5px);font-weight:700;color:var(--ink);letter-spacing:.02em}
+@media(max-width:520px){
+  .steps--fig{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .steps--fig .step{padding:18px 12px 20px}
+  .step-fig{max-width:118px;margin:-6px auto -4px}
+  .steps--fig .step h4{font-size:15px}
+  .steps--fig .step p{font-size:12.5px;line-height:1.8}
+}
