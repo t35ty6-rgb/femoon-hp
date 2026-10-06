@@ -254,11 +254,11 @@
           <h3 id="rTitle"></h3>
         </div>
         <p class="body" id="rBody"></p>
-        <a class="btn-line" href="#line">
+        <a class="btn-line" id="rCta" href="#line" target="_blank" rel="noopener">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.73 2 10.32c0 4.1 3.55 7.54 8.35 8.2.32.07.77.22.88.5.1.25.07.65.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.44 5.7-3.36 7.78-5.75C21.1 13.9 22 12.2 22 10.32 22 5.73 17.52 2 12 2z"/></svg>
           <span><b>解説とおうちケアを受け取る</b><span>LINEで友だち追加・お名前の入力は不要です</span></span>
         </a>
-        <p style="margin-top:14px;font-size:12px;color:#A98D8B;text-align:center">予約をおすすめするメッセージは届きません。</p>
+        <p style="margin-top:14px;font-size:12px;color:#A98D8B;text-align:center">予約をおすすめするメッセージは届きません。<br>LINEをまだ追加していない方は<a href="#line" style="color:inherit;text-decoration:underline">こちら</a>から。</p>
       </div>
     </div>
   </div>
@@ -713,9 +713,10 @@
          "生理まわりの重さが、以前より気になっている",
          "座ったとき、骨盤が左右どちらかに傾いている気がする",
          "気になってはいるが、これまで誰にも相談したことがない"];
-  var R=[{max:2,t:"気になる項目は少なめでした",b:"いまは大きく気になることは少ないようです。骨盤まわりのコンディションは、年齢やライフステージで少しずつ変わっていきます。いまの状態を保つためのおうちケアの手順を、LINEでお送りします。"},
-         {max:5,t:"いくつか、心当たりがありますね",b:"日常のなかで「あれ？」と思う場面が出てきている段階かもしれません。この時期にご自身の骨盤まわりの状態を知っておくと、選べることが増えます。チェックが入った項目ごとの解説と、ご自宅で続けられるケアの手順をLINEでお送りします。"},
-         {max:8,t:"ひとりで抱えてこられたのだと思います",b:"多くの項目にチェックが入りました。同じ状態の方はめずらしくありませんが、6割近い方が誰にも相談しないまま過ごしています。まずは解説とおうちケアの手順を読んでみてください。そのうえで話を聞いてみたいと思われたら、カウンセリングのみのご来店も無料です。"}];
+  var LIFF='https://liff.line.me/2010753272-wXayDdY1?form=';
+  var R=[{max:2,form:'d86bc9b9-30e3-4b97-8598-599aa842dd60',t:"気になる項目は少なめでした",b:"いまは大きく気になることは少ないようです。骨盤まわりのコンディションは、年齢やライフステージで少しずつ変わっていきます。いまの状態を保つためのおうちケアの手順を、LINEでお送りします。"},
+         {max:5,form:'64895ad5-2b2a-4d13-9d18-1326011d62db',t:"いくつか、心当たりがありますね",b:"日常のなかで「あれ？」と思う場面が出てきている段階かもしれません。この時期にご自身の骨盤まわりの状態を知っておくと、選べることが増えます。チェックが入った項目ごとの解説と、ご自宅で続けられるケアの手順をLINEでお送りします。"},
+         {max:8,form:'2c07869a-37e7-4da7-978b-694666b0c785',t:"ひとりで抱えてこられたのだと思います",b:"多くの項目にチェックが入りました。同じ状態の方はめずらしくありませんが、6割近い方が誰にも相談しないまま過ごしています。まずは解説とおうちケアの手順を読んでみてください。そのうえで話を聞いてみたいと思われたら、カウンセリングのみのご来店も無料です。"}];
   var list=document.getElementById('qList'); if(!list) return;
   var ans=new Array(Q.length).fill(null);
 
@@ -753,6 +754,8 @@
     document.getElementById('rNum').textContent=yes;
     document.getElementById('rTitle').textContent=r.t;
     document.getElementById('rBody').textContent=r.b;
+    var cta=document.getElementById('rCta');
+    if(cta&&r.form){cta.href=LIFF+r.form;}
     idle.hidden=true; res.hidden=false;
   }
 })();
