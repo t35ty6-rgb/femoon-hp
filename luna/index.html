@@ -46,6 +46,11 @@ h2{font-family:"Hiragino Mincho ProN","Noto Serif JP",serif;font-size:21px;color
 footer{padding:24px 20px;font-size:13px;color:var(--sub);text-align:center}
 footer a{color:var(--sub)}
 </style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2029954341125968');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2029954341125968&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 <div class="wrap">
@@ -83,14 +88,14 @@ footer a{color:var(--sub)}
 <li>気になっていることを送る（お名前なしでもOK）</li>
 <li>ご希望の日時を決めてご来店</li>
 </ol>
-<div style="margin-top:22px"><a class="cta js-line" href="https://lh-t3-5ty6-jjgda2-456729.t3-5ty6.workers.dev/r/luna-ig-r1-senmonka"><i>LINE</i>LINEで相談・予約する</a></div>
+<div style="margin-top:22px"><a class="cta js-line" href="https://line.me/R/ti/p/@739qjyya"><i>LINE</i>LINEで相談・予約する</a></div>
 <p class="note">相談だけでも大丈夫です。無理な勧誘はしません。</p>
 </section>
 
 <footer>Luna フェムケアサロン｜福井県大野市<br>お電話：<a href="tel:09016336046">090-1633-6046</a></footer>
 </div>
 
-<div class="bar"><a class="cta js-line" href="https://lh-t3-5ty6-jjgda2-456729.t3-5ty6.workers.dev/r/luna-ig-r1-senmonka"><i>LINE</i>LINEで相談・予約する</a></div>
+<div class="bar"><a class="cta js-line" href="https://line.me/R/ti/p/@739qjyya"><i>LINE</i>LINEで相談・予約する</a></div>
 
 <script>
 (function(){
@@ -101,12 +106,20 @@ footer a{color:var(--sub)}
     seitai:{h:'猫背・巻き肩・反り腰を、<br>骨格から整える。',l:'女性の施術者が立ち姿から骨盤と姿勢のバランスを確認し、お洋服のまま骨格から整えます。完全個室・1名貸切です。'}
   };
   var r=(new URLSearchParams(location.search).get('r')||'senmonka');
-  if(!V[r]) r='senmonka';
-  document.getElementById('hero').src=r+'.jpg';
-  document.getElementById('h1').innerHTML=V[r].h;
-  document.getElementById('lead').textContent=V[r].l;
-  var u='https://lh-t3-5ty6-jjgda2-456729.t3-5ty6.workers.dev/r/luna-ig-r1-'+r;
-  document.querySelectorAll('.js-line').forEach(function(a){a.href=u;});
+  var alias={seiri:'senmonka',more:'sign',sango2:'sango',shisei:'seitai'}; var key=V[r]?r:(alias[r]||'senmonka');
+  document.getElementById('hero').src=key+'.jpg';
+  document.getElementById('h1').innerHTML=V[key].h;
+  document.getElementById('lead').textContent=V[key].l;
+  var u='https://line.me/R/ti/p/@739qjyya';
+  try{ fbq('track','ViewContent',{content_name:r}); }catch(e){}
+  document.querySelectorAll('.js-line').forEach(function(a){
+    a.href=u;
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      try{ fbq('track','Lead',{content_name:r,value:5500,currency:'JPY'}); }catch(e){}
+      setTimeout(function(){ location.href=u; },300);
+    });
+  });
 })();
 </script>
 </body>
