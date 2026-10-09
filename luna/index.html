@@ -33,7 +33,7 @@ img{max-width:100%;display:block}
 .hd img{width:42px}
 .hd p{font-size:12px;color:var(--sub);line-height:1.5;letter-spacing:.08em}
 .hd b{display:block;font-family:var(--serif);font-size:17px;color:var(--wine);letter-spacing:.06em}
-.hero img{width:100%;height:auto}
+.hero{display:block;position:relative;overflow:hidden;cursor:pointer}.hero img{width:100%;height:auto}.hero-shine{position:absolute;left:20%;right:10%;bottom:1.5%;height:8%;border-radius:999px;overflow:hidden;pointer-events:none}.hero-shine::before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:shine 2.8s ease-in-out infinite}.hero:active img{filter:brightness(.96)}.local-strip{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:var(--wine);color:#fff;font-size:12.5px;letter-spacing:.06em;padding:7px 12px;line-height:1.5;text-align:center}.local-strip span{background:linear-gradient(135deg,#e9cf9f,#c9a46e);color:var(--wine);font-weight:700;border-radius:999px;padding:1px 10px;font-size:12px}.eyebrow-local{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--rose-deep);font-weight:700;letter-spacing:.06em;margin-bottom:10px}.eyebrow-local span{border:1px solid var(--rose);border-radius:999px;padding:0 10px;background:var(--rose-pale)}
 /* sections */
 .sec{position:relative;padding:56px 22px}
 .sec--white{background:var(--white)}
@@ -136,7 +136,7 @@ footer img{width:56px;margin:0 auto 8px}
 .js .rv.in{opacity:1;transform:none}
 .tel{transition:transform .15s ease,background .2s}
 .tel:active{transform:scale(.98)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.cta::before{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.cta::before,.hero-shine::before{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
 </style>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -147,11 +147,13 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <body>
 <div class="wrap">
 <header class="hd"><img src="logo.png" alt="Luna"><p><b>Luna フェムケアサロン</b>福井県大野市・女性専用</p></header>
-<div class="hero"><img id="hero" src="senmonka.jpg" alt="Luna フェムケアサロン" width="1080" height="1350"></div>
+<div class="local-strip"><span>大野市密着</span>大野で暮らす女性のための、地元のフェムケアサロン</div>
+<a class="hero js-line" href="https://line.me/R/ti/p/@739qjyya" aria-label="LINEで相談する"><img id="hero" src="senmonka.jpg" alt="Luna フェムケアサロン" width="1080" height="1350"><span class="hero-shine" aria-hidden="true"></span></a>
 
 <!-- リード -->
 <section class="sec sec--white">
 <img class="deco" src="w-moon.webp" alt="" style="right:-6px;top:-6px;width:96px;opacity:.85">
+<p class="eyebrow-local"><span>大野市の女性へ</span>地元・大野だから、気軽に通える</p>
 <h1 class="lead-h" id="h1">言いにくい悩みも、<br>女性同士なら話せる。</h1>
 <p class="lead-p" id="lead">尿もれ、産後の骨盤、生理やゆらぎ期、姿勢のこと。人に言いにくいからだの悩みを、女性の施術者が完全個室でうかがいます。</p>
 </section>
@@ -280,6 +282,7 @@ document.documentElement.classList.add('js');
   var r=(new URLSearchParams(location.search).get('r')||'senmonka');
   var key=V[r]?r:'senmonka';
   document.getElementById('hero').src=key+'.jpg';
+  var BTN={seiri:[9,9,3,8],more:[16,16,2,8],sango2:[17,17,2,8],shisei:[55,4,3,9]};var sh=document.querySelector('.hero-shine');if(sh){var b=BTN[key];if(b){sh.style.display='';sh.style.left=b[0]+'%';sh.style.right=b[1]+'%';sh.style.bottom=b[2]+'%';sh.style.height=b[3]+'%';}else{sh.style.display='none';}}
   document.getElementById('h1').innerHTML=V[key].h;
   document.getElementById('lead').textContent=V[key].l;
   var u='https://line.me/R/ti/p/@739qjyya';
