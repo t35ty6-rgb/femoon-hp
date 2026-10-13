@@ -137,6 +137,7 @@ footer img{width:56px;margin:0 auto 8px}
 .tel{transition:transform .15s ease,background .2s}
 .tel:active{transform:scale(.98)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.cta::before,.hero-shine::before{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+.line-alt{margin-top:12px;font-size:12px;line-height:1.7;color:var(--sub);text-align:center}.line-alt b{color:var(--ink);font-family:var(--latin);letter-spacing:.03em}.line-alt button{margin-left:6px;padding:2px 10px;font-size:11px;border:1px solid rgba(var(--rose-rgb),.5);border-radius:999px;background:#fff;color:var(--rose-deep);cursor:pointer}
 </style>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -247,7 +248,7 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <li>気になっていることを送る（お名前なしでもOK）</li>
 <li>ご希望の日時を決めてご来店</li>
 </ol>
-<div style="margin-top:24px"><a class="cta js-line" href="https://line.me/R/ti/p/@739qjyya"><i>LINE</i>LINEで相談・予約する</a></div>
+<div style="margin-top:24px"><a class="cta js-line" href="https://line.me/R/ti/p/@739qjyya"><i>LINE</i>LINEで相談・予約する</a><p class="line-alt">LINEが開かないときは、LINEアプリの友だち検索でID「<b>@739qjyya</b>」<button type="button" class="js-copyid">IDをコピー</button></p></div>
 <p class="note">相談だけでも大丈夫です。無理な勧誘はしません。</p>
 </section>
 
@@ -287,12 +288,23 @@ document.documentElement.classList.add('js');
   document.getElementById('lead').textContent=V[key].l;
   var u='https://line.me/R/ti/p/@739qjyya';
   try{ fbq('track','ViewContent',{content_name:r}); }catch(e){}
+  /* LINEへは押した瞬間にそのまま移動（待たせない）。Androidのアプリ内ブラウザはLINEアプリを直接起動 */
+  var ua=navigator.userAgent||'';
+  var inApp=/Instagram|FBAN|FBAV|FB_IAB|Line\//i.test(ua);
+  var href=u;
+  if(/Android/i.test(ua) && inApp){
+    href='intent://ti/p/@739qjyya#Intent;scheme=line;package=jp.naver.line.android;S.browser_fallback_url='+encodeURIComponent(u)+';end';
+  }
   document.querySelectorAll('.js-line').forEach(function(a){
-    a.href=u;
-    a.addEventListener('click',function(ev){
-      ev.preventDefault();
+    a.href=href;
+    a.addEventListener('click',function(){
       try{ fbq('track','Lead',{content_name:r,value:5500,currency:'JPY'}); }catch(e){}
-      setTimeout(function(){ location.href=u; },300);
+    });
+  });
+  document.querySelectorAll('.js-copyid').forEach(function(b){
+    b.addEventListener('click',function(){
+      var done=function(){ b.textContent='コピーしました'; setTimeout(function(){ b.textContent='IDをコピー'; },2000); };
+      try{ navigator.clipboard.writeText('@739qjyya').then(done,function(){}); }catch(e){}
     });
   });
   var els=document.querySelectorAll('.prof,.pt,.price,.flow li,.gal img,.local-box div,.acc,.band p,.h2');
