@@ -173,7 +173,7 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <section class="sec sec--rose seiri-only" id="seiriOnly" hidden>
 <span class="lbl">こんなこと、ありませんか？</span>
 <h2 class="h2">毎月のこと、<br>あきらめていませんか</h2>
-<ul class="chk">
+<ul class="chk" id="chk">
 <li><b>薬がないと不安になる</b>ポーチに痛み止めがあるか、出かける前に何度も確かめてしまう。</li>
 <li><b>予定を入れるのが怖い</b>生理と重なりそうな日は、楽しみな予定もつい断ってしまう。</li>
 <li><b>仕事や家事に集中できない</b>下腹部や腰のつらさで、何日かは思うように動けない。</li>
@@ -310,12 +310,21 @@ document.documentElement.classList.add('js');
     sango2:{h:'産後の体型戻すなら、<br>フェムケア骨盤矯正。',l:'出産してから体型が戻らない、骨盤の開きやお腹まわりが気になるママへ。女性の施術者が骨盤のバランスを確かめ、お洋服のままケアします。お子さま連れもOK。'},
     itami:{h:'毎月、痛み止めを<br>準備するのが当たり前に。',l:'生理のたびに薬に頼る毎日、そのつらさを女性の施術者に相談してみませんか。完全個室・お洋服のまま、骨盤まわりからケアします。まずは相談だけでも大丈夫です。'},
     itami2:{h:'毎月、痛み止めが<br>手放せない。',l:'薬がないと不安になる。予定を入れるのが怖い。生理のたびのそのつらさを、女性の施術者に相談してみませんか。完全個室・お洋服のまま、デリケートゾーンには触れずにケアします。'},
+    seiritsu:{h:'動けないほどの生理痛で、<br>つらい毎日。',l:'生理のたびに、横になるしかない日がある。そのつらさを、女性の施術者に気軽に相談してみませんか。女性専用・完全個室、お洋服のまま。デリケートゾーンには触れません。お子さま連れもOKです。'},
+    kaigi:{h:'大事な会議の日に、<br>生理が重なった。',l:'仕事や予定をあきらめないために。生理のつらさを、女性の施術者に相談してみませんか。完全個室・お洋服のまま、骨盤まわりからケアします。'},
+    timing:{h:'「このタイミングで<br>生理きたか…」',l:'大事な日にかぎって重なる。そのたびに予定も気持ちも振り回される。そのつらさ、女性の施術者に相談してみませんか。完全個室・お洋服のまま、骨盤まわりからケアします。'},
     shisei:{h:'猫背・巻き肩・反り腰<br>改善で−10歳の立ち姿。',l:'女性の施術者が立ち姿から確認し、お洋服のまま骨格から整えます。完全個室・1名貸切です。'}
   };
   var r=(new URLSearchParams(location.search).get('r')||'senmonka');
-  var key=V[r]?r:'senmonka';var IMG={itami:'itami.jpg',itami2:'itami2.jpg',seiri:'itami2.jpg'};
+  var key=V[r]?r:'senmonka';var IMG={itami:'itami.jpg',itami2:'itami2.jpg',seiri:'itami2.jpg',seiritsu:'seiritsu.jpg',kaigi:'kaigi.jpg',timing:'timing.jpg'};
+  var PAIN={
+    seiritsu:[['動けないほどつらい日がある','生理のたびに、横になって過ぎるのを待つしかない。'],['薬を飲んでもつらい','痛み止めを飲んでも、仕事や家事がままならない日がある。'],['誰にも言えずにがまんしている','家族にも職場にも、うまく伝えられない。']],
+    kaigi:[['鎮痛剤が手放せない','大事な日の朝は、まず薬があるか確かめてしまう。'],['大事な予定と生理が重なる','会議や行事の日にかぎって、生理がきてしまう。'],['夜用ナプキンを持ち歩くのが当たり前に','もれが気になって、一日中落ち着かない。']],
+    timing:[['大事な日にかぎって重なる','旅行、行事、仕事の山場。カレンダーを見るたびに不安になる。'],['予定を入れるのが怖い','生理と重なりそうな日は、楽しみな予定もつい断ってしまう。'],['仕事や家事に集中できない','下腹部や腰のつらさで、何日かは思うように動けない。']]
+  };
+  var SEIRI_KEYS=['itami','itami2','seiri','seiritsu','kaigi','timing'];
   document.getElementById('hero').src=IMG[key]||(key+'.jpg');
-  var BTN={more:[16,16,2,8],sango2:[17,17,2,8],shisei:[55,4,2.8,10.4]};var sh=document.querySelector('.hero-shine');if(sh){var b=BTN[key];var so=document.getElementById('seiriOnly');if(so){so.hidden=!(key==='itami'||key==='itami2'||key==='seiri');}var hc=document.getElementById('heroCta');if(hc){hc.hidden=!!b;}if(b){sh.style.display='';sh.style.left=(b[0]-1)+'%';sh.style.right=(b[1]-1)+'%';sh.style.bottom=(b[2]-0.6)+'%';sh.style.height=(b[3]+1.2)+'%';if(100-b[0]-b[1]<55){sh.classList.add('is-narrow');sh.innerHTML='<i>DM</i>DMで相談する';}}else{sh.style.display='none';}}
+  var BTN={seiritsu:[27.8,27.4,3.1,3.8],more:[16,16,2,8],sango2:[17,17,2,8],shisei:[55,4,2.8,10.4]};var sh=document.querySelector('.hero-shine');if(sh){var b=BTN[key];var so=document.getElementById('seiriOnly');if(so){so.hidden=SEIRI_KEYS.indexOf(key)<0;var ck=document.getElementById('chk');if(ck&&PAIN[key]){ck.innerHTML=PAIN[key].map(function(x){return '<li><b>'+x[0]+'</b>'+x[1]+'</li>';}).join('');}}var hc=document.getElementById('heroCta');if(hc){hc.hidden=!!b;}if(b){sh.style.display='';sh.style.left=(b[0]-1)+'%';sh.style.right=(b[1]-1)+'%';sh.style.bottom=(b[2]-0.6)+'%';sh.style.height=(b[3]+1.2)+'%';if(key==='seiritsu'){sh.classList.add('is-narrow');sh.innerHTML='<i>DM</i>DMで匿名相談OK';}else if(100-b[0]-b[1]<55){sh.classList.add('is-narrow');sh.innerHTML='<i>DM</i>DMで相談する';}}else{sh.style.display='none';}}
   document.getElementById('h1').innerHTML=V[key].h;
   document.getElementById('lead').textContent=V[key].l;
   var u='https://line.me/R/ti/p/@739qjyya';
