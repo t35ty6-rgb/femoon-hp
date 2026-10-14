@@ -137,6 +137,15 @@ footer img{width:56px;margin:0 auto 8px}
 .tel{transition:transform .15s ease,background .2s}
 .tel:active{transform:scale(.98)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.cta::before,.hero-shine::before{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+.cta--dm{background:linear-gradient(90deg,#f58529,#dd2a7b 45%,#8134af 80%,#515bd4);box-shadow:0 8px 18px rgba(221,42,123,.32)}.cta--dm i{color:#dd2a7b}.cta--dm:hover{box-shadow:0 12px 24px rgba(221,42,123,.4)}.cta--dm:active{box-shadow:0 3px 8px rgba(221,42,123,.35)}
+.hero-dm{display:flex;align-items:center;justify-content:center;gap:.4em;background:linear-gradient(90deg,#f58529,#dd2a7b 45%,#8134af 80%,#515bd4);color:#fff;font-weight:700;font-size:clamp(14px,4.4vw,23px);letter-spacing:.04em;box-shadow:0 6px 14px rgba(221,42,123,.35);white-space:nowrap}.hero-dm::after{content:"›";font-size:1.4em;line-height:1;font-weight:400}.hero-dm i{font-style:normal;background:#fff;color:#dd2a7b;border-radius:6px;font-size:.62em;font-weight:900;padding:2px 6px;font-family:var(--latin)}
+@keyframes breatheDm{0%,100%{box-shadow:0 8px 18px rgba(221,42,123,.32),0 0 0 0 rgba(221,42,123,.45)}60%{box-shadow:0 8px 18px rgba(221,42,123,.32),0 0 0 12px rgba(221,42,123,0)}}.cta--dm{animation-name:breatheDm}
+.hero-dm.is-narrow{font-size:clamp(12px,3.6vw,19px)}
+.hero-cta{padding:16px 16px 6px;background:#fff}.hero-cta p{margin:8px 0 0;text-align:center;font-size:12.5px;color:var(--sub)}
+.chk{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}.chk li{background:#fff;border-radius:14px;padding:14px 16px 14px 46px;position:relative;font-size:14px;line-height:1.7;color:var(--sub);box-shadow:0 4px 14px rgba(120,60,70,.06)}.chk li::before{content:"✓";position:absolute;left:14px;top:14px;width:22px;height:22px;border-radius:50%;background:var(--wine);color:#fff;font-size:13px;line-height:22px;text-align:center;font-weight:700}.chk li b{display:block;color:var(--ink);font-size:16px;margin-bottom:2px}
+.chk-msg{margin:18px 0 6px;text-align:center;font-weight:700;color:var(--wine);line-height:1.8}
+.pts4{margin-top:16px}.area{margin:18px 0 0;text-align:center;font-size:13.5px;line-height:1.8;color:var(--sub)}
+.alt-line{margin-top:14px;font-size:12.5px;text-align:center;color:var(--sub)}.alt-line a{color:var(--green);font-weight:700}
 .line-alt{margin-top:12px;font-size:12px;line-height:1.7;color:var(--sub);text-align:center}.line-alt b{color:var(--ink);font-family:var(--latin);letter-spacing:.03em}.line-alt button{margin-left:6px;padding:2px 10px;font-size:11px;border:1px solid rgba(var(--rose-rgb),.5);border-radius:999px;background:#fff;color:var(--rose-deep);cursor:pointer}
 </style>
 <script>
@@ -149,7 +158,8 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <div class="wrap">
 <header class="hd"><img src="logo.png" alt="Luna"><p><b>Luna フェムケアサロン</b>福井県大野市・女性専用</p></header>
 <div class="local-strip"><span>大野市密着</span>大野で暮らす女性のための、地元のフェムケアサロン</div>
-<a class="hero js-line" href="https://line.me/R/ti/p/@739qjyya" aria-label="LINEで相談する"><img id="hero" src="senmonka.jpg" alt="Luna フェムケアサロン" width="1080" height="1350"><span class="hero-shine" aria-hidden="true"></span></a>
+<a class="hero js-dm" href="https://ig.me/m/hikaru_luna_beauty" aria-label="インスタのDMで相談する"><img id="hero" src="senmonka.jpg" alt="Luna フェムケアサロン" width="1080" height="1350"><span class="hero-shine hero-dm" aria-hidden="true"><i>DM</i>インスタDMで相談する</span></a>
+<div class="hero-cta" id="heroCta" hidden><a class="cta cta--dm js-dm" href="https://ig.me/m/hikaru_luna_beauty"><i>DM</i>DMで相談・予約する</a><p>相談だけでも大丈夫です。お名前なしでもOK</p></div>
 
 <!-- リード -->
 <section class="sec sec--white">
@@ -157,6 +167,26 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <p class="eyebrow-local"><span>大野市の女性へ</span>地元・大野だから、気軽に通える</p>
 <h1 class="lead-h" id="h1">言いにくい悩みも、<br>女性同士なら話せる。</h1>
 <p class="lead-p" id="lead">尿もれ、産後の骨盤、生理やゆらぎ期、姿勢のこと。人に言いにくいからだの悩みを、女性の施術者が完全個室でうかがいます。</p>
+</section>
+
+<!-- 痛み止め訴求（?r=itami / itami2 のときだけ表示） -->
+<section class="sec sec--rose seiri-only" id="seiriOnly" hidden>
+<span class="lbl">こんなこと、ありませんか？</span>
+<h2 class="h2">毎月のこと、<br>あきらめていませんか</h2>
+<ul class="chk">
+<li><b>薬がないと不安になる</b>ポーチに痛み止めがあるか、出かける前に何度も確かめてしまう。</li>
+<li><b>予定を入れるのが怖い</b>生理と重なりそうな日は、楽しみな予定もつい断ってしまう。</li>
+<li><b>仕事や家事に集中できない</b>下腹部や腰のつらさで、何日かは思うように動けない。</li>
+</ul>
+<p class="chk-msg">ひとつでも当てはまったら、<br>それは「仕方ない」で終わらせなくていいサインです。</p>
+<div class="pts pts4">
+<div class="pt"><span class="md">女</span><div><b>女性の施術者</b><p>担当はヒカル（女性）だけです。</p></div></div>
+<div class="pt"><span class="md">室</span><div><b>完全個室</b><p>ほかの方と顔を合わせません。</p></div></div>
+<div class="pt"><span class="md">服</span><div><b>お洋服のまま</b><p>着替えはいりません。</p></div></div>
+<div class="pt"><span class="md">安</span><div><b>デリケートゾーンには触れません</b><p>骨盤まわりから、外側だけでケアします。</p></div></div>
+</div>
+<p class="area">大野市から車で約17km圏内の方へ。<br>暮らしているまちで、気軽に相談できます。</p>
+<div style="margin-top:20px"><a class="cta cta--dm js-dm" href="https://ig.me/m/hikaru_luna_beauty"><i>DM</i>まずはDMで相談してみる</a><p class="alt-line" style="margin-top:8px">相談だけでも大丈夫です。お名前なしでもOK</p></div>
 </section>
 
 <svg class="wv" viewBox="0 0 560 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h560v10c-70 14-140 18-210 8S210 2 140 8 40 22 0 16z" fill="#fffdfb"/><path d="M0 16c40 6 70-2 140-8s140 6 210 10 140-2 210-8v18H0z" fill="#f8f2eb"/></svg>
@@ -244,11 +274,11 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <span class="lbl">ご予約まで</span>
 <h2 class="h2">ご予約の流れ</h2>
 <ol class="flow">
-<li>下のボタンからLINEで友だち追加</li>
+<li>下のボタンからインスタのDMを開く</li>
 <li>気になっていることを送る（お名前なしでもOK）</li>
 <li>ご希望の日時を決めてご来店</li>
 </ol>
-<div style="margin-top:24px"><a class="cta js-line" href="https://line.me/R/ti/p/@739qjyya"><i>LINE</i>LINEで相談・予約する</a><p class="line-alt">LINEが開かないときは、LINEアプリの友だち検索でID「<b>@739qjyya</b>」<button type="button" class="js-copyid">IDをコピー</button></p></div>
+<div style="margin-top:24px"><a class="cta cta--dm js-dm" href="https://ig.me/m/hikaru_luna_beauty"><i>DM</i>DMで相談・予約する</a><p class="alt-line">LINEがいい方は <a class="js-line" href="https://line.me/R/ti/p/@739qjyya">こちら（LINE ID @739qjyya）</a></p></div>
 <p class="note">相談だけでも大丈夫です。無理な勧誘はしません。</p>
 </section>
 
@@ -257,7 +287,7 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <span class="lbl">アクセス</span>
 <h2 class="h2">サロンの場所</h2>
 <div class="acc">
-<dl><dt>住所</dt><dd>福井県大野市錦町1-17</dd><dt>営業時間</dt><dd>10:00〜20:00</dd><dt>ご予約</dt><dd>LINEまたはお電話</dd></dl>
+<dl><dt>住所</dt><dd>福井県大野市錦町1-17</dd><dt>営業時間</dt><dd>10:00〜20:00</dd><dt>ご予約</dt><dd>インスタDM・LINE・お電話</dd></dl>
 <a class="tel" href="tel:09016336046"><small>わからないこと・不安なことがあれば<br>お気軽にお電話ください</small><b>090-1633-6046</b></a>
 </div>
 </section>
@@ -265,7 +295,7 @@ fbq('init','2029954341125968');fbq('track','PageView');
 <footer><img src="logo.png" alt="Luna">Luna フェムケアサロン｜福井県大野市錦町1-17<br>※当サロンは医療機関ではありません。</footer>
 </div>
 
-<div class="bar"><a class="cta js-line" href="https://line.me/R/ti/p/@739qjyya"><i>LINE</i>LINEで相談・予約する</a></div>
+<div class="bar"><a class="cta cta--dm js-dm" href="https://ig.me/m/hikaru_luna_beauty"><i>DM</i>DMで相談・予約する</a></div>
 
 <script>
 document.documentElement.classList.add('js');
@@ -275,15 +305,17 @@ document.documentElement.classList.add('js');
     sign:{h:'くしゃみや笑ったときのヒヤッ、<br>ひとりで抱えないで。',l:'出産や年齢をきっかけに、同じ経験をする女性は少なくありません。女性の施術者が、骨盤と骨盤底まわりをお洋服の上からやさしくケアします。'},
     sango:{h:'産後の骨盤まわりの変化、<br>ひとりで抱えこまなくて大丈夫。',l:'出産してから、からだの戻りが前と違う。女性の施術者が骨盤のバランスを確かめて、お洋服のままケアします。お子さま連れでもご相談ください。'},
     seitai:{h:'猫背・巻き肩・反り腰を、<br>骨格から整える。',l:'女性の施術者が立ち姿から骨盤と姿勢のバランスを確認し、お洋服のまま骨格から整えます。完全個室・1名貸切です。'},
-    seiri:{h:'もう生理に<br>振り回されない。',l:'鎮痛剤・分厚いナプキン・タンポンに頼る毎日から卒業したい女性へ。女性の施術者が完全個室で、お洋服のまま骨盤まわりからケアします。'},
+    seiri:{h:'毎月、痛み止めが<br>手放せない。',l:'薬がないと不安になる。予定を入れるのが怖い。生理のたびのそのつらさを、女性の施術者に相談してみませんか。完全個室・お洋服のまま、デリケートゾーンには触れずにケアします。'},
     more:{h:'お湯漏れ・尿漏れ・膣の弛み、<br>もう悩まなくていい。',l:'人に言いにくい悩みこそ、女性の施術者に。完全個室・お洋服のまま、骨盤底まわりからケアします。'},
     sango2:{h:'産後の体型戻すなら、<br>フェムケア骨盤矯正。',l:'出産してから体型が戻らない、骨盤の開きやお腹まわりが気になるママへ。女性の施術者が骨盤のバランスを確かめ、お洋服のままケアします。お子さま連れもOK。'},
+    itami:{h:'毎月、痛み止めを<br>準備するのが当たり前に。',l:'生理のたびに薬に頼る毎日、そのつらさを女性の施術者に相談してみませんか。完全個室・お洋服のまま、骨盤まわりからケアします。まずは相談だけでも大丈夫です。'},
+    itami2:{h:'毎月、痛み止めが<br>手放せない。',l:'薬がないと不安になる。予定を入れるのが怖い。生理のたびのそのつらさを、女性の施術者に相談してみませんか。完全個室・お洋服のまま、デリケートゾーンには触れずにケアします。'},
     shisei:{h:'猫背・巻き肩・反り腰<br>改善で−10歳の立ち姿。',l:'女性の施術者が立ち姿から確認し、お洋服のまま骨格から整えます。完全個室・1名貸切です。'}
   };
   var r=(new URLSearchParams(location.search).get('r')||'senmonka');
-  var key=V[r]?r:'senmonka';
-  document.getElementById('hero').src=key+'.jpg';
-  var BTN={seiri:[9,9,3,8],more:[16,16,2,8],sango2:[17,17,2,8],shisei:[55,4,3,9]};var sh=document.querySelector('.hero-shine');if(sh){var b=BTN[key];if(b){sh.style.display='';sh.style.left=b[0]+'%';sh.style.right=b[1]+'%';sh.style.bottom=b[2]+'%';sh.style.height=b[3]+'%';}else{sh.style.display='none';}}
+  var key=V[r]?r:'senmonka';var IMG={itami:'itami.jpg',itami2:'itami2.jpg',seiri:'itami2.jpg'};
+  document.getElementById('hero').src=IMG[key]||(key+'.jpg');
+  var BTN={more:[16,16,2,8],sango2:[17,17,2,8],shisei:[55,4,2.8,10.4]};var sh=document.querySelector('.hero-shine');if(sh){var b=BTN[key];var so=document.getElementById('seiriOnly');if(so){so.hidden=!(key==='itami'||key==='itami2'||key==='seiri');}var hc=document.getElementById('heroCta');if(hc){hc.hidden=!!b;}if(b){sh.style.display='';sh.style.left=(b[0]-1)+'%';sh.style.right=(b[1]-1)+'%';sh.style.bottom=(b[2]-0.6)+'%';sh.style.height=(b[3]+1.2)+'%';if(100-b[0]-b[1]<55){sh.classList.add('is-narrow');sh.innerHTML='<i>DM</i>DMで相談する';}}else{sh.style.display='none';}}
   document.getElementById('h1').innerHTML=V[key].h;
   document.getElementById('lead').textContent=V[key].l;
   var u='https://line.me/R/ti/p/@739qjyya';
@@ -299,6 +331,11 @@ document.documentElement.classList.add('js');
     a.href=href;
     a.addEventListener('click',function(){
       try{ fbq('track','Lead',{content_name:r,value:5500,currency:'JPY'}); }catch(e){}
+    });
+  });
+  document.querySelectorAll('.js-dm').forEach(function(a){
+    a.addEventListener('click',function(){
+      try{ fbq('track','Lead',{content_name:r,value:5500,currency:'JPY',method:'dm'}); }catch(e){}
     });
   });
   document.querySelectorAll('.js-copyid').forEach(function(b){
